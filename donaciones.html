@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Huellitas Comunitarias - Donaciones</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+
+    <header>
+        <h1>🐾 Huellitas Comunitarias</h1>
+        <nav class="barra-navegacion">
+            <a href="index.html" class="boton-nav">Inicio</a>
+            <a href="adopciones.html" class="boton-nav">Adopciones</a>
+            <a href="donaciones.html" class="boton-nav activo">Donaciones</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="seccion-contenido">
+            <h2>Gestión de Suministros y Donaciones</h2>
+            <p>Mantener nuestro refugio y alimentar a los rescatados requiere el apoyo de toda la comunidad. Conoce las necesidades actuales y cómo hacernos llegar tu aportación.</p>
+
+            <div class="donaciones-grid">
+                <div class="caja-info">
+                    <h3>📦 Suministros Solicitados</h3>
+                    <ul>
+                        <li>Alimento seco y húmedo para perros y gatos.</li>
+                        <li>Cobijas, sábanas limpias y toallas usadas.</li>
+                        <li>Artículos de limpieza (cloro, jabón, franelas).</li>
+                        <li>Platos de plástico o metal para comida y agua.</li>
+                        <li>Correas, collares y juguetes en buen estado.</li>
+                    </ul>
+                </div>
+
+                <div class="caja-info">
+                    <h3>📍 Centro de Acopio</h3>
+                    <p><strong>Ubicación:</strong> Zona Comunitaria Principal, Módulo B.</p>
+                    <p><strong>Días de recepción:</strong> Lunes a Viernes.</p>
+                    <p><strong>Horario:</strong> 9:00 AM a 3:00 PM.</p>
+                    <p><strong>Contacto directo:</strong> Puedes agendar una entrega especial escribiendo a nuestro correo comunitario.</p>
+                </div>
+            </div>
+
+            <!-- Formulario de Donación con Confirmación Bonita -->
+            <div style="margin-top: 30px; background: #fcfcfc; border: 1px solid #e0e0e0; padding: 25px; border-radius: 8px;">
+                <h3 style="color: #2d5a27; margin-top:0;">🤝 Agendar Entrega de Donación</h3>
+                <p>Completa los detalles de tu aportación para esperarte en el Módulo B:</p>
+                
+                <form id="form-donacion" onsubmit="confirmarDonacion(event)">
+                    <div style="margin-bottom: 12px;">
+                        <label style="display:block; font-size:14px; font-weight:bold; margin-bottom:5px;">Tu nombre o grupo:</label>
+                        <input type="text" id="don-nombre" required placeholder="Ej. Juan Pérez" style="width:100%; max-width:400px; padding:8px; border:1px solid #ccc; border-radius:4px;">
+                    </div>
+                    
+                    <div style="margin-bottom: 12px;">
+                        <label style="display:block; font-size:14px; font-weight:bold; margin-bottom:5px;">¿Qué deseas donar?</label>
+                        <input type="text" id="don-item" required placeholder="Ej. Croquetas y cobijas" style="width:100%; max-width:400px; padding:8px; border:1px solid #ccc; border-radius:4px;">
+                    </div>
+
+                    <div style="margin-bottom: 12px;">
+                        <label style="display:block; font-size:14px; font-weight:bold; margin-bottom:5px;">Día que asistirás:</label>
+                        <input type="date" id="don-dia" required style="width:100%; max-width:400px; padding:8px; border:1px solid #ccc; border-radius:4px;">
+                    </div>
+
+                    <div style="margin-bottom: 15px;">
+                        <label style="display:block; font-size:14px; font-weight:bold; margin-bottom:5px;">Hora estimada:</label>
+                        <input type="time" id="don-hora" required style="width:100%; max-width:400px; padding:8px; border:1px solid #ccc; border-radius:4px;">
+                    </div>
+
+                    <button type="submit" class="boton-accion" style="width:auto; display:inline-block; padding: 10px 20px;">Confirmar y Registrar Donación</button>
+                </form>
+
+                <!-- Mensaje bonito de confirmación (Oculto al inicio) -->
+                <div id="mensaje-exito-donacion" style="display:none; margin-top:20px; background:#f4f8f3; border: 1px solid #2d5a27; padding:20px; border-radius:6px; text-align:center;">
+                    <h4 style="color:#2d5a27; margin-top:0;">💚 ¡Muchas gracias por tu generosidad!</h4>
+                    <p style="margin-bottom:10px;">Tu registro de donación ha sido guardado exitosamente. Te esperamos en el Módulo B.</p>
+                    <button onclick="resetearFormDonacion()" style="background-color: #2d5a27; color: white; border: none; padding: 8px 16px; border-radius: 4px; cursor: pointer; font-weight: bold;">Hacer otra donación</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Proyecto PAEC - Huellitas Comunitarias &copy; 2026. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        function confirmarDonacion(e) {
+            e.preventDefault();
+            document.getElementById('form-donacion').style.display = 'none';
+            document.getElementById('mensaje-exito-donacion').style.display = 'block';
+            document.getElementById('mensaje-exito-donacion').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function resetearFormDonacion() {
+            document.getElementById('form-donacion').reset();
+            document.getElementById('form-donacion').style.display = 'block';
+            document.getElementById('mensaje-exito-donacion').style.display = 'none';
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Huellitas Comunitarias - Expediente Médico</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+
+    <header>
+        <h1>🐾 Huellitas Comunitarias</h1>
+        <nav class="barra-navegacion">
+            <a href="index.html" class="boton-nav">Inicio</a>
+            <a href="adopciones.html" class="boton-nav activo">Adopciones</a>
+            <a href="donaciones.html" class="boton-nav">Donaciones</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="seccion-contenido">
+            <a href="adopciones.html" style="display: inline-block; background-color: #e0e0e0; color: #333; padding: 6px 14px; border-radius: 4px; text-decoration: none; font-weight: bold; margin-bottom: 20px;">⬅ Regresar a Adopciones</a>
+
+            <div style="background: #f4f8f3; border: 1px solid #c8e6c9; padding: 30px; border-radius: 8px;">
+                <h2 id="det-nombre" style="color: #2d5a27; margin-top:0;">Expediente Médico de Mascota</h2>
+                
+                <div style="margin-bottom: 20px;">
+                    <p><strong>🧬 Raza:</strong> <span id="det-raza">-</span></p>
+                    <p><strong>💉 Vacunas aplicadas:</strong> <span id="det-vacunas">Al día</span></p>
+                    <p><strong>🩺 Estado de salud actual:</strong> <span id="det-salud">Excelente, completamente sano.</span></p>
+                    <p><strong>⚠️ Antecedentes / Cuidados especiales:</strong> <span id="det-cuidados">Ninguno.</span></p>
+                    <p><strong>🩹 Enfermedades o lesiones pasadas:</strong> <span id="det-historial">Ninguna registrada.</span></p>
+                </div>
+
+                <div id="contenedor-boton-adoptar">
+                    <!-- Botón dinámico -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Proyecto PAEC - Huellitas Comunitarias &copy; 2026. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const mascota = params.get('mascota') || "Mascota";
+        
+        document.getElementById('det-nombre').innerText = "📋 Expediente Médico de: " + mascota;
+
+        let infoMedica = {
+            // Perros (15)
+            "Max": { raza: "Beagle", vacunas: "Completas (Rabia, Quíntuple, Desparasitado)", salud: "Sano y esterilizado", cuidados: "Requiere paseos diarios y estimulación olfativa.", historial: "Ninguno." },
+            "Rocky": { raza: "Bulldog Francés", vacunas: "Esquema completo al día", salud: "Muy activo y fuerte", cuidados: "Cuidado con golpes de calor por ser braquicefálico.", historial: "Ninguna." },
+            "Copito": { raza: "Corgi Mestizo", vacunas: "Primera dosis de cachorro aplicada", salud: "Cachorro en desarrollo saludable", cuidados: "Alimentación especializada para crecimiento.", historial: "Rescatado con buena salud." },
+            "Bruno": { raza: "Pastor Alemán", vacunas: "Vacunado, desparasitado y con cartilla vigente", salud: "Fuerte y robusto", cuidados: "Ideal para espacios amplios y entrenamiento de obediencia.", historial: "Ninguna." },
+            "Lola": { raza: "Labrador Retriever", vacunas: "Esquema completo y refuerzo anual", salud: "Muy enérgica y alegre", cuidados: "Ejercicio regular diario.", historial: "Ninguna." },
+            "Kiko": { raza: "Golden Retriever", vacunas: "Cartilla de vacunación completa", salud: "Sano", cuidados: "Atención y cepillado constante.", historial: "Ninguno." },
+            "Toby": { raza: "Mestizo / Criollo", vacunas: "Vacunas generales y antirrábica", salud: "Estable y tranquilo", cuidados: "Paseos moderados.", historial: "Rescatado de la calle." },
+            "Pancho": { raza: "Pug", vacunas: "Vacunas al corriente", salud: "Estable", cuidados: "Limpieza de pliegues faciales.", historial: "Ninguno." },
+            "Zeus": { raza: "Husky Siberiano", vacunas: "Esquema completo", salud: "Excelente condición física", cuidados: "Mucho ejercicio y espacio para correr.", historial: "Ninguno." },
+            "Bobby": { raza: "Boxer", vacunas: "Vacunado y desparasitado", salud: "Muy atlético", cuidados: "Juegos dinámicos y socialización.", historial: "Ninguna." },
+            "KiraP": { raza: "Dóberman Mix", vacunas: "Esquema al corriente", salud: "Sana", cuidados: "Liderazgo positivo y paseos largos.", historial: "Ninguno." },
+            "Lucas": { raza: "Schnauzer", vacunas: "Vacunas vigentes", salud: "Excelente", cuidados: "Corte de pelo periódico.", historial: "Ninguno." },
+            "Firulais": { raza: "Mestizo Orejón", vacunas: "Vacunación general al día", salud: "Estable", cuidados: "Ambiente cálido y afecto.", historial: "Ninguno." },
+            "Daisy": { raza: "Poodle / Caniche", vacunas: "Completas", salud: "Saludable", cuidados: "Cepillado frecuente para evitar nudos.", historial: "Ninguna." },
+            "Chato": { raza: "Pitbull Blue", vacunas: "Vacunado y esterilizado", salud: "Fuerte y activo", cuidados: "Socialización y ejercicio diario.", historial: "Ninguno." },
+
+            // Gatos (13)
+            "Luna": { raza: "Tuxedo (Bizcocho)", vacunas: "Triple Felina y Desparasitación al corriente", salud: "Sana, esterilizada", cuidados: "Prefiere espacios tranquilos en interiores.", historial: "Ninguna lesión previa." },
+            "Misi": { raza: "Maine Coon (Mix)", vacunas: "Vacunación felina al día", salud: "Sana y calmada", cuidados: "Cepillado frecuente de pelaje largo.", historial: "Ninguna." },
+            "Simba": { raza: "British Shorthair", vacunas: "Vacunas al corriente y desparasitado", salud: "Excelente estado físico", cuidados: "Juegos interactivos diarios.", historial: "Ninguno." },
+            "KiraG": { raza: "Siamés", vacunas: "Triple felina aplicada", salud: "Excelente", cuidados: "Ambiente cálido y compañía frecuente.", historial: "Ninguno." },
+            "Pelusa": { raza: "Persa Mix", vacunas: "Vacunación al día", salud: "Saludable", cuidados: "Limpieza ocular y cepillado diario.", historial: "Ninguna." },
+            "Nala": { raza: "Europeo Común", vacunas: "Desparasitada y primera vacuna", salud: "Muy activa", cuidados: "Juguetes interactivos.", historial: "Ninguna." },
+            "Chester": { raza: "Angora Turco", vacunas: "Vacunas al corriente", salud: "Sano", cuidados: "Cuidado de pelaje blanco y cepillado.", historial: "Ninguno." },
+            "Cleo": { raza: "Bombay", vacunas: "Esquema felino completo", salud: "Excelente", cuidados: "Ambiente hogareño y tranquilo.", historial: "Ninguno." },
+            "Tigre": { raza: "Tabby Atigrado", vacunas: "Vacunas generales al día", salud: "Estable", cuidados: "Rascadores y atención.", historial: "Ninguno." },
+            "Milú": { raza: "Ruso Azul Mix", vacunas: "Vacunación vigente", salud: "Sana", cuidados: "Espacios limpios y tranquilos.", historial: "Ninguno." },
+            "Tom": { raza: "Careto / Tricolor", vacunas: "Vacunado y desparasitado", salud: "Activo", cuidados: "Juegos diarios de persecución.", historial: "Ninguno." },
+            "Pantera": { raza: "American Shorthair", vacunas: "Vacunas al día", salud: "Excelente", cuidados: "Estimulación mental con juguetes.", historial: "Ninguno." },
+            "CopitoG": { raza: "Balinés Mix", vacunas: "Primera dosis felina", salud: "Cachorro sano", cuidados: "Alimentación de calidad para desarrollo.", historial: "Ninguno." }
+        };
+
+        if(infoMedica[mascota]) {
+            document.getElementById('det-raza').innerText = infoMedica[mascota].raza;
+            document.getElementById('det-vacunas').innerText = infoMedica[mascota].vacunas;
+            document.getElementById('det-salud').innerText = infoMedica[mascota].salud;
+            document.getElementById('det-cuidados').innerText = infoMedica[mascota].cuidados;
+            document.getElementById('det-historial').innerText = infoMedica[mascota].historial;
+        }
+
+        let btnContenedor = document.getElementById('contenedor-boton-adoptar');
+        btnContenedor.innerHTML = `<a href="papeleo.html?mascota=${mascota}" class="boton-accion" style="text-decoration:none; display:inline-block; padding: 12px 25px;">Iniciar Papeleo de Adopción para ${mascota}</a>`;
+    </script>
+
+</body>
+</html>

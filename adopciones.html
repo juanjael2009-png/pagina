@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Huellitas Comunitarias - Adopciones</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+
+    <header>
+        <h1>🐾 Huellitas Comunitarias</h1>
+        <nav class="barra-navegacion">
+            <a href="index.html" class="boton-nav">Inicio</a>
+            <a href="adopciones.html" class="boton-nav activo">Adopciones</a>
+            <a href="donaciones.html" class="boton-nav">Donaciones</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="seccion-contenido">
+            <h2>Adopción Responsable</h2>
+            <p>Dales una segunda oportunidad. Contamos con 7 perritos y 6 gatitos buscando un hogar lleno de amor. Conoce a todos nuestros rescatados.</p>
+
+            <!-- Filtros de categoría -->
+            <div style="margin: 20px 0; display: flex; gap: 10px; flex-wrap: wrap;">
+                <button onclick="filtrar('todos')" class="boton-nav" style="background:#2d5a27; border:none; cursor:pointer;">Todos (13)</button>
+                <button onclick="filtrar('perros')" class="boton-nav" style="background:#4b8b3b; border:none; cursor:pointer;">🐶 Perros (7)</button>
+                <button onclick="filtrar('gatos')" class="boton-nav" style="background:#4b8b3b; border:none; cursor:pointer;">🐱 Gatos (6)</button>
+                <button onclick="filtrar('destacados')" class="boton-nav" style="background:#d4a373; border:none; cursor:pointer;">⭐ Destacados</button>
+            </div>
+
+            <!-- Contenedor de Tarjetas (Destacados Primero) -->
+            <div class="adopciones-grid" id="grid-mascotas">
+                
+                <!-- ================= DESTACADOS (PRIMEROS) ================= -->
+
+                <!-- 1. Luna (Gata Destacada) -->
+                <div class="tarjeta-mascota" data-tipo="gatos" data-estado="destacado">
+                    <span style="background:#2d5a27; color:white; font-size:11px; padding:3px 8px; border-radius:4px; width:fit-content; margin-bottom:5px; font-weight:bold;">⭐ Destacado</span>
+                    <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?q=80&w=400&auto=format&fit=crop" alt="Luna" class="img-mascota">
+                    <h3>Luna</h3>
+                    <p><strong>Edad:</strong> 8 meses</p>
+                    <p>Tranquila, le encanta dormir al sol y es muy cariñosa. Desparasitada y sana.</p>
+                    <div style="display: flex; gap: 8px; margin-top: auto;">
+                        <a href="detalle.html?mascota=Luna" style="flex:1; background-color:#6c757d; color:white; border:none; padding:10px; border-radius:5px; text-decoration:none; font-weight:bold; text-align:center; font-size:13px;">+ Info médica</a>
+                        <a href="papeleo.html?mascota=Luna" class="boton-accion" style="flex:1; text-decoration: none; display: block; box-sizing: border-box; text-align:center;">Adoptar</a>
+                    </div>
+                </div>
+
+                <!-- 2. Max (Perro Destacado) -->
+                <div class="tarjeta-mascota" data-tipo="perros" data-estado="destacado">
+                    <span style="background:#2d5a27; color:white; font-size:11px; padding:3px 8px; border-radius:4px; width:fit-content; margin-bottom:5px; font-weight:bold;">⭐ Destacado</span>
+                    <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?q=80&w=400&auto=format&fit=crop" alt="Max" class="img-mascota">
+                    <h3>Max</h3>
+                    <p><strong>Edad:</strong> 1 año y medio</p>
+                    <p>Juguetón, amigable con otros perros y muy obediente. Vacunado y esterilizado.</p>
+                    <div style="display: flex; gap: 8px; margin-top: auto;">
+                        <a href="detalle.html?mascota=Max" style="flex:1; background-color:#6c757d; color:white; border:none; padding:10px; border-radius:5px; text-decoration:none; font-weight:bold; text-align:center; font-size:13px;">+ Info médica</a>
+                        <a href="papeleo.html?mascota=Max" class="boton-accion" style="flex:1; text-decoration: none; display: block; box-sizing: border-box; text-align:center;">Adoptar</a>
+                    </div>
+                </div>
+
+
+                <!-- ================= RESTO DE PERROS (5 más = 7 en total) ================= -->
+                
+                <!-- Rocky -->
+                <div class="tarjeta-mascota" data-tipo="perros" data-estado="normal">
+                    <img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?q=80&w=400&auto=format&fit=crop" alt="Rocky" class="img-mascota">
+                    <h3>Rocky</h3>
+                    <p><strong>Edad:</strong> 2 años</p>
+                    <p>Muy enérgico, ideal para patios grandes o familias activas. Le encanta correr.</p>
+                    <div style="display: flex; gap: 8px; margin-top: auto;">
+                        <a href="detalle.html?mascota=Rocky" style="flex:1; background-color:#6c757d; color:white; border:none; padding:10px; border-radius:5px; text-decoration:none; font-weight:bold; text-align:center; font-size:13px;">+ Info médica</a>
+                        <a href="papeleo.html?mascota=Rocky" class="boton-accion" style="flex:1; text-decoration: none; display: block; box-sizing: border-box; text-align:center;">Adoptar</a>
+                    </div>
+                </div>
+
+                <!-- Copito -->
+                <div class="tarjeta-mascota" data-tipo="perros" data-estado="normal">
+                    <img src="https://images.unsplash.com/photo-1537151608828-ea2b11777ee8?q=80&w=400&auto=format&fit=crop" alt="Copito" class="img-mascota">
+                    <h3>Copito</h3>
+                    <p><strong>Edad:</strong> 4 meses</p>
+                    <p>Cachorro tierno y juguetón. Le gusta convivir con niños y otros animalitos.</p>
+                    <div style="display: flex; gap: 8px; margin-top: auto;">
+                        <a href="detalle.html?mascota=Copito" style="flex:1; background-color:#6c757d; color:white; border:none; padding:10px; border-radius:5px; text-decoration:none; font-weight:bold; text-align:center; font-size:13px;">+ Info médica</a>
+                        <a href="papeleo.html?mascota=Copito" class="boton-accion" style="flex:1; text-decoration: none; display: block; box-sizing: border-box; text-align:center;">Adoptar</a>
+                    </div>
+                </div>
+
+                <!-- Bruno -->
+                <div class="tarjeta-mascota" data-tipo="perros" data-estado="normal">
+                    <img src="https://images.unsplash.com/photo-1543852786-1cf6624b9987?q=80&w=400&auto=format&fit=crop" alt="Bruno" class="img-mascota">
+                    <h3>Bruno</h3>
+                    <p><strong>Edad:</strong> 3 años</p>
+                    <p>Perro noble, leal y muy protector. Le gusta caminar por las tardes.</p>
+                    <div style="display: flex; gap: 8px; margin-top: auto;">
+                        <a href="detalle.html?mascota=Bruno" style="flex:1; background-color:#6c757d; color:white; border:none; padding:10px; border-radius:5px; text-decoration:none; font-weight:bold; text-align:center; font-size:13px;">+ Info médica</a>
+                        <a href="papeleo.html?mascota=Bruno" class="boton-accion" style="flex:1; text-decoration: none; display: block; box-sizing: border-box; text-align:center;">Adoptar</a>
+                    </div>
+                </div>
+
+                <!-- Lola -->
+                <div class="tarjeta-mascota" data-tipo="perros" data-estado="normal">
+                    <img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?q=80&w=400&auto=format&fit=crop" alt="Lola" class="img-mascota">
+                    <h3>Lola</h3>
+                    <p><strong>Edad:</strong> 2 años</p>
+                    <p>Muy cariñosa y excelente compañera para niños. Le encanta jugar con pelota.</p>
+                    <div style="display: flex; gap: 8px; margin-top: auto;">
+                        <a href="detalle.html?mascota=Lola" style="flex:1; background-color:#6c757d; color:white; border:none; padding:10px; border-radius:5px; text-decoration:none; font-weight:bold; text-align:center; font-size:13px;">+ Info médica</a>
+                        <a href="papeleo.html?mascota=Lola" class="boton-accion" style="flex:1; text-decoration: none; display: block; box-sizing: border-box; text-align:center;">Adoptar</a>
+                    </div>
+                </div>
+
+                <!-- Kiko -->
+                <div class="tarjeta-mascota" data-tipo="perros" data-estado="normal">
+                    <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?q=80&w=400&auto=format&fit=crop" alt="Kiko" class="img-mascota">
+                    <h3>Kiko</h3>
+                    <p><strong>Edad:</strong> 1 año</p>
+                    <p>Tierno, obediente y sumamente sociable con otros animales.</p>
+                    <div style="display: flex; gap: 8px; margin-top: auto;">
+                        <a href="detalle.html?mascota=Kiko" style="flex:1; background-color:#6c757d; color:white; border:none; padding:10px; border-radius:5px; text-decoration:none; font-weight:bold; text-align:center; font-size:13px;">+ Info médica</a>
+                        <a href="papeleo.html?mascota=Kiko" class="boton-accion" style="flex:1; text-decoration: none; display: block; box-sizing: border-box; text-align:center;">Adoptar</a>
+                    </div>
+                </div>
+
+
+                <!-- ================= RESTO DE GATOS (5 más = 6 en total) ================= -->
+
+                <!-- Misi -->
+                <div class="tarjeta-mascota" data-tipo="gatos" data-estado="normal">
+                    <img src="https://images.unsplash.com/photo-1573865526739-10659fec78a5?q=80&w=400&auto=format&fit=crop" alt="Misi" class="img-mascota">
+                    <h3>Misi</h3>
+                    <p><strong>Edad:</strong> 1 año</p>
+                    <p>Gatita muy independiente, limpia y sumamente dulce. Ideal para departamentos.</p>
+                    <div style="display: flex; gap: 8px; margin-top: auto;">
+                        <a href="detalle.html?mascota=Misi" style="flex:1; background-color:#6c757d; color:white; border:none; padding:10px; border-radius:5px; text-decoration:none; font-weight:bold; text-align:center; font-size:13px;">+ Info médica</a>
+                        <a href="papeleo.html?mascota=Misi" class="boton-accion" style="flex:1; text-decoration: none; display: block; box-sizing: border-box; text-align:center;">Adoptar</a>
+                    </div>
+                </div>
+
+                <!-- Simba -->
+                <div class="tarjeta-mascota" data-tipo="gatos" data-estado="normal">
+                    <img src="https://images.unsplash.com/photo-1513360371669-4adf3dd7dff8?q=80&w=400&auto=format&fit=crop" alt="Simba" class="img-mascota">
+                    <h3>Simba</h3>
+                    <p><strong>Edad:</strong> 2 años</p>
+                    <p>Gato atigrado muy curioso y activo. Le gusta explorar y recibir mimos.</p>
+                    <div style="display: flex; gap: 8px; margin-top: auto;">
+                        <a href="detalle.html?mascota=Simba" style="flex:1; background-color:#6c757d; color:white; border:none; padding:10px; border-radius:5px; text-decoration:none; font-weight:bold; text-align:center; font-size:13px;">+ Info médica</a>
+                        <a href="papeleo.html?mascota=Simba" class="boton-accion" style="flex:1; text-decoration: none; display: block; box-sizing: border-box; text-align:center;">Adoptar</a>
+                    </div>
+                </div>
+
+                <!-- Kira (Gato) -->
+                <div class="tarjeta-mascota" data-tipo="gatos" data-estado="normal">
+                    <img src="https://images.unsplash.com/photo-1543852786-1cf6624b9987?q=80&w=400&auto=format&fit=crop" alt="KiraG" class="img-mascota">
+                    <h3>Kira</h3>
+                    <p><strong>Edad:</strong> 1 año</p>
+                    <p>Ojos azules hermosos, vocal y muy apegada a sus humanos favoritos.</p>
+                    <div style="display: flex; gap: 8px; margin-top: auto;">
+                        <a href="detalle.html?mascota=KiraG" style="flex:1; background-color:#6c757d; color:white; border:none; padding:10px; border-radius:5px; text-decoration:none; font-weight:bold; text-align:center; font-size:13px;">+ Info médica</a>
+                        <a href="papeleo.html?mascota=KiraG" class="boton-accion" style="flex:1; text-decoration: none; display: block; box-sizing: border-box; text-align:center;">Adoptar</a>
+                    </div>
+                </div>
+
+                <!-- Pelusa -->
+                <div class="tarjeta-mascota" data-tipo="gatos" data-estado="normal">
+                    <img src="https://images.unsplash.com/photo-1533738363-b7f9aef128ce?q=80&w=400&auto=format&fit=crop" alt="Pelusa" class="img-mascota">
+                    <h3>Pelusa</h3>
+                    <p><strong>Edad:</strong> 3 años</p>
+                    <p>Muy peludita, calmada y hogareña. Amante de las siestas largas.</p>
+                    <div style="display: flex; gap: 8px; margin-top: auto;">
+                        <a href="detalle.html?mascota=Pelusa" style="flex:1; background-color:#6c757d; color:white; border:none; padding:10px; border-radius:5px; text-decoration:none; font-weight:bold; text-align:center; font-size:13px;">+ Info médica</a>
+                        <a href="papeleo.html?mascota=Pelusa" class="boton-accion" style="flex:1; text-decoration: none; display: block; box-sizing: border-box; text-align:center;">Adoptar</a>
+                    </div>
+                </div>
+
+                <!-- Nala -->
+                <div class="tarjeta-mascota" data-tipo="gatos" data-estado="normal">
+                    <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?q=80&w=400&auto=format&fit=crop" alt="Nala" class="img-mascota">
+                    <h3>Nala</h3>
+                    <p><strong>Edad:</strong> 6 meses</p>
+                    <p>Cachorrita juguetona, curiosa y llena de energía.</p>
+                    <div style="display: flex; gap: 8px; margin-top: auto;">
+                        <a href="detalle.html?mascota=Nala" style="flex:1; background-color:#6c757d; color:white; border:none; padding:10px; border-radius:5px; text-decoration:none; font-weight:bold; text-align:center; font-size:13px;">+ Info médica</a>
+                        <a href="papeleo.html?mascota=Nala" class="boton-accion" style="flex:1; text-decoration: none; display: block; box-sizing: border-box; text-align:center;">Adoptar</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- FUNCIÓN DE JAVASCRIPT PARA LOS FILTROS -->
+    <script>
+        function filtrar(categoria) {
+            const tarjetas = document.querySelectorAll('.tarjeta-mascota');
+            
+            tarjetas.forEach(tarjeta => {
+                const tipo = tarjeta.getAttribute('data-tipo');
+                const estado = tarjeta.getAttribute('data-estado');
+
+                if (categoria === 'todos') {
+                    tarjeta.style.display = 'flex'; // O 'block' dependiendo de tu CSS
+                } else if (categoria === 'perros' && tipo === 'perros') {
+                    tarjeta.style.display = 'flex';
+                } else if (categoria === 'gatos' && tipo === 'gatos') {
+                    tarjeta.style.display = 'flex';
+                } else if (categoria === 'destacados' && estado === 'destacado') {
+                    tarjeta.style.display = 'flex';
+                } else {
+                    tarjeta.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>

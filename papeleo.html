@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Huellitas Comunitarias - Papeleo de Adopción</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+
+    <header>
+        <h1>🐾 Huellitas Comunitarias</h1>
+        <nav class="barra-navegacion">
+            <a href="index.html" class="boton-nav">Inicio</a>
+            <a href="adopciones.html" class="boton-nav">Adopciones</a>
+            <a href="donaciones.html" class="boton-nav">Donaciones</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="seccion-contenido">
+            <!-- Botón para regresar -->
+            <a href="adopciones.html" style="display: inline-block; background-color: #e0e0e0; color: #333; padding: 6px 14px; border-radius: 4px; text-decoration: none; font-weight: bold; margin-bottom: 20px;">⬅ Regresar a Adopciones</a>
+
+            <h2 id="titulo-mascota">📝 Papeleo de Adopción</h2>
+            <p>Estás a un paso de darle un hogar a <span id="lbl-mascota" style="font-weight: bold; color: #2d5a27;"></span>. Por favor completa los siguientes datos:</p>
+
+            <!-- Formulario de Papeleo -->
+            <form id="form-papeleo" onsubmit="generarTicket(event)" style="background: #f4f8f3; padding: 25px; border-radius: 8px; border: 1px solid #c8e6c9; margin-top: 20px;">
+                <div style="margin-bottom: 12px;">
+                    <label style="display:block; font-size:14px; font-weight:bold; margin-bottom:5px;">Nombre completo:</label>
+                    <input type="text" id="inp-nombre" required style="width:100%; padding:8px; border:1px solid #ccc; border-radius:4px;">
+                </div>
+                <div style="margin-bottom: 12px;">
+                    <label style="display:block; font-size:14px; font-weight:bold; margin-bottom:5px;">Teléfono de contacto:</label>
+                    <input type="tel" id="inp-tel" required style="width:100%; padding:8px; border:1px solid #ccc; border-radius:4px;">
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <label style="display:block; font-size:14px; font-weight:bold; margin-bottom:5px;">¿Por qué deseas adoptarle?</label>
+                    <textarea id="inp-razon" rows="3" required style="width:100%; padding:8px; border:1px solid #ccc; border-radius:4px;"></textarea>
+                </div>
+                <button type="submit" class="boton-accion">Enviar Solicitud y Generar Ticket</button>
+            </form>
+
+            <!-- Mensaje Bonito y Mini Ticket (Ocultos al inicio) -->
+            <div id="contenedor-resultado" style="display:none; margin-top:30px;">
+                <div style="background: #e8f5e9; border-left: 5px solid #2d5a27; padding: 15px; border-radius: 4px; margin-bottom: 20px;">
+                    <h3 style="color: #2d5a27; margin: 0 0 5px 0;">🎉 ¡Solicitud Registrada con Éxito!</h3>
+                    <p style="margin: 0; color: #333;">Hemos guardado tu información correctamente. Aquí tienes tu comprobante oficial para presentar en el refugio:</p>
+                </div>
+
+                <div id="mini-ticket" style="background:white; padding:20px; border: 2px dashed #2d5a27; border-radius:6px; font-family: monospace;">
+                    <h4 style="margin:0 0 10px 0; color:#2d5a27; text-align:center;">🎟️ TICKET DE REFERENCIA PAEC</h4>
+                    <p><strong>Folio:</strong> <span id="t-folio"></span></p>
+                    <p><strong>Adoptante:</strong> <span id="t-nombre"></span></p>
+                    <p><strong>Teléfono:</strong> <span id="t-tel"></span></p>
+                    <p><strong>Mascota Solicitada:</strong> <span id="t-mascota"></span></p>
+                    <p><strong>Fecha:</strong> 02/10/2026</p>
+                    <hr style="border:0; border-top:1px dashed #ccc;">
+                    <p style="font-size:12px; text-align:center; margin-bottom:0;">¡Presenta este ticket impreso o digital en el refugio para validar tu solicitud!</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Proyecto PAEC - Huellitas Comunitarias &copy; 2026. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const mascota = params.get('mascota') || "nuestra mascota";
+        document.getElementById('lbl-mascota').innerText = mascota;
+
+        function generarTicket(e) {
+            e.preventDefault();
+            let nombre = document.getElementById('inp-nombre').value;
+            let tel = document.getElementById('inp-tel').value;
+            let folioAleatorio = Math.floor(100000 + Math.random() * 900000);
+
+            document.getElementById('t-folio').innerText = "#" + folioAleatorio;
+            document.getElementById('t-nombre').innerText = nombre;
+            document.getElementById('t-tel').innerText = tel;
+            document.getElementById('t-mascota').innerText = mascota;
+
+            // Ocultar formulario y mostrar el mensaje bonito con el ticket
+            document.getElementById('form-papeleo').style.display = 'none';
+            document.getElementById('contenedor-resultado').style.display = 'block';
+            document.getElementById('contenedor-resultado').scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+
+</body>
+</html>
